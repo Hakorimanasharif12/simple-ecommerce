@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-image: url('images/cute-girl-holding-book-laptop-office.jpg'), 
+                    linear-gradient(to right, transparent, black);    
+    background-size: cover;
+    background-position: left;
+    height: 700px;
+    
+    
+}
+
+
+.header1{
+    background-color: transparent;
+    display: flex;
+    padding-top: 30px;
+}
+.logo{
+    font-size: 20px;
+    font-weight: 400;
+    font-family: sans-serif;
+    color: #fff;
+    padding-left: 40px;
+}
+.navlinks{
+    padding-left: 200px;
+    
+}
+.navlinks ul{
+    display: flex;
+   
+   
+}
+.navlinks ul li{    
+    list-style: none;
+    
+ }
+ .navlinks ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    font-family: sans-serif;
+    
+ }
+
+.form{
+    padding-left: 300px;
+   display: flex;
+}
+.form ul li{
+    list-style: none;
+
+}
+.form ul li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+    font-family: sans-serif;
+}
+.form button{
+    background: #8D5CF6;
+    border: none !important;
+    box-shadow: none !important;
+    font-size: 12px;
+    padding: 15px 30px;
+    margin-top: 10px;
+    color: #fff;
+    border-radius: 5px;
+    margin-top: -15px;
+    font-family: sans-serif;
+}
+body h1{
+    color: #fff;
+    font-size: 60px;
+    font-family: sans-serif;
+}
+body p{
+    color: #fff;
+    font-size: 30px;
+    font-family:sans-serif;
+}
+.body1{
+    padding-top: 100px;
+    padding-left: 90px;
+    
+}
+.body2 h1{
+    font-size: 50px;
+    padding-left: 90px;
+    
+}
+.body2 p{
+    padding-left: 90px;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 100;
+}
+.body2 a{
+    text-decoration: none;
+    color: #8D5CF6;
+    padding-left: 90px;
+    font-family: sans-serif;
+}
+.video-container {
+    position: relative;
+    width: 350px;
+    height: 350px; 
+    margin: 0 auto;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-left: 800px;
+   margin-top: -300px;
+    
+}
+
+
+video {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover;
+    display: block;
+    filter: brightness(50%);
+    border-radius: 15px;
+}
+
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:#8D5CF6; 
+    color: white;
+    border: none;
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 20px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.video-container:hover video {
+    filter: brightness(100%);
+}
+.icons{
+    display: flex;
+    justify-content: center;
+}
+.custom-line {
+    width: 100px;   
+    height: 10px;  
+    background-color: #E94F3D; 
+    margin: 20px 0; 
+    margin-left: 90px;
+    padding-left: 140px;
+  }
+  .education p{
+    font-size: 20px;    
+    font-family: sans-serif;
+  }
+  .education h1{
+    font-family: sans-serif;
+  }
+
+  .card {
+    background: white;
+    width: 240px;
+    height: 300px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, background-color 0.3s; 
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+   
+  }
+  .card p{
+   
+  }
+  
+  .icon img {
+    width: 72px;
+    height: 72px;
+  }
+  
+  .card h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #212529;
+    margin-top: 15px;
+  }
+  
+  .divider {
+    width: 30px;
+    height: 2px;
+    background-color: red;
+    border: none;
+    margin: 10px auto;
+  }
+  
+  .card p {
+    color: #666;
+    font-size: 14px;
+    justify-content: center;
+    margin-right: 170px;
+    padding-right: 170px;
+    padding-left: -200px;
+    line-height: 20px;
+  }
+  
+ 
+  .card:nth-child(odd) {
+    transform: translateY(-10px);
+  }
+  
+  .card:nth-child(even) {
+    transform: translateY(10px);
+  }
+  
+
+  .card:hover {
+    transform: scale(1.1); 
+    background-color: #9b7eed; 
+    color: white;
+  }
+  
+  
+  
+  .card:hover .divider {
+    color: white;
+    background-color: white;
+  }
+  .cources p{
+    font-family: sans-serif;  
+
+  }
+  .cources h1{
+    font-family: sans-serif;
+  }
+  .sales{
+   background-color:rgb(234, 225, 225);
+    width: 240px;
+    height: 300px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 50px;
+  }
+  .sales img{
+    height: 230px;
+    width: 240px;
+    margin-top: -20px;
+    margin-left: -20px;
+    
+
+  }
+
+</style>
+<div class="image">
+  
+</div>
+    <div class="header1">
+        <div class="logo">School name</div>
+        <div class="navlinks">
+            <ul>
+                <li><a href="#">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="#">Product</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="#">Pricing</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="#">Contact</a></li>&nbsp;&nbsp;&nbsp;&nbsp;
+            </ul>
+        </div>
+        <div class="form">
+            <ul>
+                <li><a href="#">Login</a></li>
+            </ul>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                 <button>JOIN US &nbsp;<i class="fa-solid fa-arrow-right"></i></button>
+            
+        </div>
+    </div>
+
+
+<body>
+    
+    <p style="color: #8D5CF6; font-family: sans-serif;">Welcome</p>
+    <h1>25K+ STUDENTS <br>TRUST US</h1> <br>
+    <P> Find the right instructor for you <br> from over 10,000 teachers</P>
+    <br>
+    <div class="buttons" style="padding-left: 90px;">
+        <button style="  background: #8D5CF6;
+        border: none !important;
+        box-shadow: none !important;
+        font-size: 12px;
+        padding: 15px 30px;
+        margin-top: 10px; border-radius: 10px; color: #fff; margin-left: -100px;">Join us </button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button style="  background:transparent;
+        box-shadow: none !important;
+        font-size: 12px;
+        padding: 15px 30px;
+        margin-top: 10px; border: 1px solid #fff; 
+        border-radius: 10px; color: #fff;">Learn More</button>
+    </div>
+    </div>
+    <br>
+    <br> <br> <br> <br> <br>
+    <div class="other" style="background: #26335D">
+        <br> <br> <br> <br> <br> 
+        <div class="icons">
+            <img src="images/col-md-2 sec-.svg">
+            <img src="images/col-md-2 sec- (1).svg">
+            <img src="images/col-md-2 sec- (2).svg">
+            <img src="images/col-md-2 sec- (3).svg">
+            <img src="images/dark-content-1-dark-fa-brands-5.svg">
+            <img src="images/col-md-2 sec- (4).svg">
+       </div>
+       <br><br><br><br>
+       <br><br>
+        <div class="body2">
+            <div class="custom-line"></div>
+            <h1>Video in Live Action</h1> <br> <br>
+        <p>Problems trying to resolve the conflict between <br>the 
+         two major realms of classical physics: <br>
+        Newtonian Mechanics</p> <br>
+        <a href="#">Learn More  &nbsp;<i class="fa-solid fa-greater-than"></i></a><br>
+        <div class="video-container">
+            <video id="myVideo" poster="images/bg-wrapper.jpg">
+                <source src="images/Design Offices ｜ Office spaces, coworking spaces, conference spaces, event spaces.mp4" type="video/mp4">
+                <source src="video.ogg" type="video/ogg">
+                Your browser does not support the video tag.
+            </video>
+            <button class="play-button" id="playPauseBtn">&#9658;</button>
+        </div> 
+        <br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br>    
+        <br><br><br><br><br>
+        
+        <div class="education">
+            <p style="color:  #8D5CF6;">Practise Advice</p>
+            <br><br> <br>
+            <h1>Get Quality Education</h1>
+            <br>
+            <p>Problems trying to resolve the conflict between <br>
+            the two major realms of classicalphysics:Newtonianmechanics</p>
+        </div>   
+        <br><br><br><br><br><br>
+        <div class="card">
+            <div class="icon">
+              <img src="images/1/icon cool-icon-l19.svg" alt="Icon 1">
+            </div>
+            <h3>Books Library</h3>
+            <hr class="divider">
+            <p>The gradual accumulation of information about</p>
+          </div>
+          
+          <div class="card">
+            <div class="icon">
+              <img src="images/1/icon cool-icon-l22@2x.svg" alt="Icon 2">
+            </div>
+            <h3>Expert Instruction</h3>
+            <hr class="divider">
+            <p>The gradual accumulation of information about</p>
+          </div>
+          
+          <div class="card purple-card">
+            <div class="icon">
+              <img src="images/1/icon cool-icon-l28.svg" alt="Icon 3">
+            </div>
+            <h3>Training Courses</h3>
+            <hr class="divider">
+            <p>The gradual information about atomic behaviour...</p>
+          </div>
+          
+          <div class="card">
+            <div class="icon">
+              <img src="images/1/icon cool-icon-l22@2x.svg" alt="Icon 4">
+            </div>
+            <h3>2,769 Online Courses</h3>
+            <hr class="divider">
+            <p>The gradual accumulation of information about</p>
+          </div>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+          <div class="courses">
+            <p style="color: #8D5CF6;">Courses</p>
+            <br><br>
+            <h1>Every   Client Matters</h1>
+            <br>
+            <p>Problems trying to solve the conflict between <br>
+            the two major realms of classical physics:Newtonian Mechanics</p>
+            <br><br><br>
+
+            <div class="cards">
+
+            </div>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                    
+                    
+                   
+                  </div>
+                </div>
+            </div>
+          </div>
+          <br><br><br><br><br>
+                    
+        
+        </div>
+
+    </div>
+   
+    <script src="index.js"></script>
+</body>
+</html>

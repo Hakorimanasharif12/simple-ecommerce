@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Example</title>
+    <style>
+        /* General styling for navigation */
+.main-nav {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+.main-nav li {
+    position: relative; /* Needed for dropdown positioning */
+    margin: 0 20px;
+}
+
+.main-nav a {
+    text-decoration: none;
+    padding: 10px;
+    color: black;
+}
+
+/* Dropdown styling */
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Align it directly under the main link */
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    list-style-type: none;
+    padding: 10px;
+    min-width: 150px;
+}
+
+.dropdown-menu li {
+    padding: 5px 0;
+}
+
+.dropdown-menu li a {
+    color: black;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show dropdown when clicked */
+.show {
+    display: block;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="main-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-link">Drinks <i class="fas fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Juices</a></li>
+                        <li><a href="#">Sodas</a></li>
+                        <li><a href="#">Water</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-link">Foods <i class="fas fa-angle-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Fruits</a></li>
+                        <li><a href="#">Vegetables</a></li>
+                        <li><a href="#">Snacks</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        // JavaScript to toggle the dropdown visibility
+document.querySelectorAll('.dropdown-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();  // Prevent the default action of the link
+
+        // Find the next sibling dropdown-menu of the clicked link
+        const dropdownMenu = link.nextElementSibling;
+
+        // Toggle the display of the dropdown menu
+        if (dropdownMenu.classList.contains('show')) {
+            dropdownMenu.classList.remove('show');  // Hide the dropdown
+        } else {
+            // Close other open dropdowns before showing the current one
+            document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+            dropdownMenu.classList.add('show');  // Show the clicked dropdown
+        }
+    });
+});
+
+// Close the dropdown if clicked outside of it
+document.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropdown-link')) {
+        document.querySelectorAll('.dropdown-menu').forEach(menu => menu.classList.remove('show'));
+    }
+});
+
+    </script>
+</body>
+</html>

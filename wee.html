@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashi Header with Dropdown</title>
+   <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    width: 100%;
+}
+
+/* Top Bar */
+.top-bar {
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    font-size: 14px;
+}
+
+.contact-info a {
+    color: #555;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.social-icons a {
+    color: #555;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+/* Main Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar select {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+}
+
+.search-bar input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    width: 200px;
+}
+
+.search-bar button {
+    background-color: #fbc02d;
+    border: none;
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.cart a {
+    color: #555;
+    text-decoration: none;
+    font-size: 18px;
+    margin-left: 15px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+}
+
+nav ul li a.active {
+    background-color: #fbc02d;
+    color: #333;
+}
+
+/* Dropdown Menu */
+nav ul li.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.dropdown-content li a {
+    padding: 10px;
+    color: #fff;
+}
+
+.dropdown-content li a:hover {
+    background-color: #444;
+}
+
+   </style>
+</head>
+<body>
+    <header>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="contact-info">
+                <a href="mailto:hello.colorlib@gmail.com">hello.colorlib@gmail.com</a> |
+                <a href="tel:+651118888">+65 11.188.888</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-pinterest"></i></a>
+                <a href="#">English <i class="fa fa-angle-down"></i></a>
+                <a href="#">Login</a>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <div class="main-header">
+            <div class="logo">Fashi.</div>
+            <div class="search-bar">
+                <select>
+                    <option>All Categories</option>
+                </select>
+                <input type="text" placeholder="What do you need?">
+                <button>🔍</button>
+            </div>
+            <div class="cart">
+                <a href="#">❤</a>
+                <a href="#">🛒 $150.00</a>
+            </div>
+        </div>
+
+        <!-- Navigation Bar with Dropdown -->
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="#">All Departments</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Men's Clothing</a></li>
+                        <li><a href="#">Women's Clothing</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Footwear</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Home & Garden</a></li>
+                        <li><a href="#">Sports</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Pages</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

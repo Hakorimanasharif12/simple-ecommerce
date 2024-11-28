@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+   <style>
+    /* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px;
+}
+
+.logo img {
+    max-height: 50px;
+}
+
+.user-options a {
+    color: white;
+    text-decoration: none;
+    margin-left: 15px;
+}
+
+.cart-container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-product-image {
+    max-width: 50px;
+    margin-right: 10px;
+}
+
+.cart-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-summary h2 {
+    margin: 0;
+}
+
+#checkoutButton {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkoutButton:hover {
+    background-color: #218838;
+}
+
+   </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="images/Leonardo_Phoenix_A_modern_minimalist_logo_design_for_IHAHIRO_N_2-removebg-preview.png" alt="Business Logo">
+        </div>
+        <div class="user-options">
+            <a href="index.html">Home</a>
+            <a href="login.html" class="login-link">Login</a>
+        </div>
+    </nav>
+
+    <div class="cart-container">
+        <h1>Your Shopping Cart</h1>
+        <table id="cartTable">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Dynamic product rows will be inserted here -->
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <h2 id="totalAmount">Total: 0 RWF</h2>
+            <button id="checkoutButton">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        // Sample product data
+const cartItems = [
+    {
+        id: 1,
+        name: "Folding Tent",
+        price: 160000,
+        image: "images/images (2).jpg",
+        quantity: 1
+    },
+    {
+        id: 2,
+        name: "Dehydrated Bananas",
+        price: 3500,
+        image: "images/bananas.jpg",
+        quantity: 2
+    },
+    {
+        id: 3,
+        name: "Dehydrated Pineapples",
+        price: 4500,
+        image: "images/pineapples.jpg",
+        quantity: 1
+    }
+];
+
+// Function to display cart items
+function displayCartItems() {
+    const cartTableBody = document.querySelector('#cartTable tbody');
+    cartTableBody.innerHTML = ""; // Clear existing items
+
+    cartItems.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>
+                <img src="${item.image}" alt="${item.name}" class="cart-product-image">
+                ${item.name}
+            </td>
+            <td>${item.price} RWF</td>
+            <td>
+                <input type="number" value="${item.quantity}" min="1" class="quantity-input" data-id="${item.id}">
+            </td>
+            <td class="item-total">${item.price * item.quantity} RWF</td>
+            <td><button class="remove-item" data-id="${item.id}">Remove</button></td>
+        `;
+        cartTableBody.appendChild(row);
+    });
+
+    updateTotal();
+}
+
+// Function to update total amount
+function updateTotal() {
+    const totalAmount = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+    document.getElementById('totalAmount').innerText = `Total: ${totalAmount} RWF`;
+}
+
+// Event delegation for quantity change and remove button
+document.addEventListener('input', (e) => {
+    if (e.target.classList.contains('quantity-input')) {
+        const itemId = parseInt(e.target.dataset.id);
+        const newQuantity = parseInt(e.target.value);
+        const item = cartItems.find(item => item.id === itemId);
+        if (item) {
+            item.quantity = newQuantity;
+            displayCartItems();
+        }
+    }
+});
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove-item')) {
+        const itemId = parseInt(e.target.dataset.id);
+        const itemIndex = cartItems.findIndex(item => item.id === itemId);
+        if (itemIndex > -1) {
+            cartItems.splice(itemIndex, 1);
+            displayCartItems();
+        }
+    }
+});
+
+// Initial display of cart items
+displayCartItems();
+
+    </script>
+</body>
+</html>

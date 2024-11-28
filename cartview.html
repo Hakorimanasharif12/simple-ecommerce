@@ -1,0 +1,189 @@
+<!-- cart.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        /* Cart Page Styles */
+.cart-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#cartItemsContainer {
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 50px;
+    height: 50px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.cart-item-details span {
+    display: block;
+}
+
+.cart-item-quantity {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item-quantity input {
+    width: 40px;
+    margin-left: 5px;
+    text-align: center;
+}
+
+#cartSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-top: 2px solid #ddd;
+}
+
+#checkoutButton {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+    </style>> <!-- Link your CSS -->
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <div class="dropdown">
+            <button class="dropbtn">Categories</button>
+            <div class="dropdown-content">
+                <a href="#">Category 1</a>
+                <a href="#">Category 2</a>
+                <a href="#">Category 3</a>
+            </div>
+        </div>
+        <div class="cart-container">
+            <a href="cart.html" id="cartIcon">🛒
+                <span id="cartCount">0</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Cart Page Section -->
+    <div class="cart-page">
+        <h2>Your Cart</h2>
+        <div id="cartItemsContainer">
+            <p id="emptyCartMessage">Your cart is empty!</p>
+        </div>
+        <div id="cartSummary">
+            <h3>Total: <span id="cartTotalPrice">0 RWF</span></h3>
+            <button id="checkoutButton">Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || []; // Load cart from local storage
+let totalPrice = 0;
+
+// Function to render the cart items on the cart page
+function renderCart() {
+    const cartItemsContainer = document.getElementById('cartItemsContainer');
+    const emptyCartMessage = document.getElementById('emptyCartMessage');
+    cartItemsContainer.innerHTML = ''; // Clear current cart items
+
+    if (cart.length === 0) {
+        emptyCartMessage.style.display = 'block';
+    } else {
+        emptyCartMessage.style.display = 'none';
+
+        cart.forEach((item, index) => {
+            const cartItem = document.createElement('div');
+            cartItem.classList.add('cart-item');
+            cartItem.innerHTML = `
+                <img src="${item.image}" alt="${item.name}">
+                <div class="cart-item-details">
+                    <span>${item.name}</span>
+                    <span>${item.price} RWF</span>
+                </div>
+                <div class="cart-item-quantity">
+                    <span>Qty: </span>
+                    <input type="number" min="1" value="${item.quantity}" data-index="${index}">
+                </div>
+                <button class="removeItem" data-index="${index}">Remove</button>
+            `;
+            cartItemsContainer.appendChild(cartItem);
+        });
+
+        // Update total price
+        calculateTotalPrice();
+    }
+}
+
+// Function to calculate the total price
+function calculateTotalPrice() {
+    totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    document.getElementById('cartTotalPrice').innerText = `${totalPrice} RWF`;
+}
+
+// Function to remove item from the cart
+function removeFromCart(index) {
+    cart.splice(index, 1); // Remove the item from the cart array
+    localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+    renderCart(); // Re-render the cart items
+    updateCartIcon(); // Update cart icon count
+}
+
+// Function to update the cart icon count
+function updateCartIcon() {
+    const cartCount = document.getElementById('cartCount');
+    cartCount.innerText = cart.length;
+    if (cart.length > 0) {
+        cartCount.style.display = 'block';
+    } else {
+        cartCount.style.display = 'none';
+    }
+}
+
+// Event listeners for removing items and updating quantity
+document.getElementById('cartItemsContainer').addEventListener('click', (e) => {
+    if (e.target.classList.contains('removeItem')) {
+        const index = e.target.getAttribute('data-index');
+        removeFromCart(index);
+    }
+});
+
+document.getElementById('cartItemsContainer').addEventListener('change', (e) => {
+    if (e.target.type === 'number') {
+        const index = e.target.getAttribute('data-index');
+        cart[index].quantity = parseInt(e.target.value);
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update local storage
+        calculateTotalPrice(); // Recalculate total price
+    }
+});
+
+// Initial render and cart icon update
+renderCart();
+updateCartIcon();
+
+    </script> <!-- Link your JS file -->
+</body>
+</html>

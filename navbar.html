@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-language E-Commerce Header</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Basic Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    /* Top Nav Styles */
+    .top-nav {
+      background: #0a2744;
+      color: white;
+      padding: 10px 0;
+    }
+
+    .top-nav-links {
+      float: right;
+    }
+
+    .top-nav-links a {
+      color: white;
+      padding: 0 15px;
+      text-decoration: none;
+    }
+
+    /* Middle Section Styles */
+    .middle-nav {
+      background: #1c3d63;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+    }
+
+    .logo {
+      font-size: 24px;
+    }
+
+    .search-bar-container {
+      display: flex;
+      align-items: center;
+      ; /* Border for the entire search area */
+      border-radius: 4px; /* Rounded corners */
+      overflow: hidden; /* Prevents overflow of inner elements */
+    }
+
+    #search-bar {
+      padding: 10px;
+      border: none; /* Remove the input border */
+      outline: none; /* No outline on focus */
+      flex: 1; /* Allows the input to grow */
+    }
+
+    .search-bar-container select {
+      padding: 10px;
+      border: none; /* Remove the select border */
+      outline: none; /* No outline on focus */
+      background: #fff; /* White background */
+      color: #000; /* Black text */
+    }
+
+    button {
+      padding: 10px 15px;
+      background-color: #ffc107;
+      border: none;
+      cursor: pointer;
+      color: white;
+    }
+
+    button:hover {
+      background-color: #e0a800; /* Darker shade on hover */
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+    }
+
+    .icons a {
+      margin-left: 15px;
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Bottom Nav Styles */
+    .bottom-nav {
+      background: #0a2744;
+      padding: 10px 0;
+    }
+
+    .nav-item {
+      display: inline-block;
+      position: relative;
+      padding: 10px 20px;
+    }
+
+    .nav-item a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Dropdown Styles */
+    .nav-item .dropdown {
+      display: none;
+      position: absolute;
+      background-color: #1c3d63;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .nav-item:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown a:hover {
+      background-color: #ffc107; /* Change color on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Nav -->
+  <div class="top-nav">
+    <div class="container">
+      
+      <div class="top-nav-links">
+        <a href="#" id="track-order">Track Order</a>
+        <a href="#" id="about">About</a>
+        <a href="#" id="our-stores">Our Stores</a>
+        <a href="#" id="blog">Blog</a>
+        <a href="#" id="contact">Contact</a>
+        <a href="#" id="help-faqs">Help & FAQs</a>
+           
+        <!-- Language Selector -->
+        <select id="language-selector" style="margin-left: 340px;">
+          <option value="en">ENG</option>
+          <option value="fr">FR</option>
+          <option value="rw">KIN</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- Middle Section -->
+  <div class="middle-nav">
+    <div class="container">
+      
+      <div class="search-bar-container" style="margin-left: 200px;">
+        <select id="category-dropdown">
+          <option>All Categories</option>
+        </select>
+        <input type="text" id="search-bar" placeholder="Search for Products">
+        
+        <button type="button">Search</button>
+      </div>
+      <div class="contact-info">
+        <p id="call-us">CALL US NOW +011 5827918</p>
+        <div class="icons">
+          <a href="#"><i class="user-icon">👤</i></a>
+          <a href="#"><i class="wishlist-icon">❤️</i></a>
+          <a href="#"><i class="cart-icon">🛒<span id="cart-count">8</span></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Nav -->
+  <div class="bottom-nav">
+    <div class="container">
+      <div class="nav-item">
+        <a href="#" id="home">Home</a>
+        <div class="dropdown">
+          <a href="#">Sub Home 1</a>
+          <a href="#">Sub Home 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="categories">Categories</a>
+        <div class="dropdown">
+          <a href="#">Sub Category 1</a>
+          <a href="#">Sub Category 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="shop">Shop</a>
+        <div class="dropdown">
+          <a href="#">Sub Shop 1</a>
+          <a href="#">Sub Shop 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="about-us">About Us</a>
+        <div class="dropdown">
+          <a href="#">Sub About 1</a>
+          <a href="#">Sub About 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="contact-us">Contact Us</a>
+        <div class="dropdown">
+          <a href="#">Sub Contact 1</a>
+          <a href="#">Sub Contact 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="our-store">Our Store</a>
+        <div class="dropdown">
+          <a href="#">Sub Store 1</a>
+          <a href="#">Sub Store 2</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="#" id="my-account">My Account</a>
+        <div class="dropdown">
+          <a href="#">Sub Account 1</a>
+          <a href="#">Sub Account 2</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <script>
+    const translations = {
+      en: {
+        welcome: "WELCOME TO OUR ETRANS STORE!",
+        trackOrder: "Track Order",
+        about: "About",
+        ourStores: "Our Stores",
+        blog: "Blog",
+        contact: "Contact",
+        help: "Help & FAQs",
+        home: "Home",
+        categories: "Categories",
+        shop: "Shop",
+        aboutUs: "About Us",
+        contactUs: "Contact Us",
+        ourStore: "Our Store",
+        myAccount: "My Account",
+        searchPlaceholder: "Search for Products",
+        callUs: "CALL US NOW +011 5827918"
+      },
+      fr: {
+        welcome: "BIENVENUE DANS NOTRE BOUTIQUE ETRANS!",
+        trackOrder: "Suivre la commande",
+        about: "À propos",
+        ourStores: "Nos magasins",
+        blog: "Blog",
+        contact: "Contact",
+        help: "Aide & FAQ",
+        home: "Accueil",
+        categories: "Catégories",
+        shop: "Magasin",
+        aboutUs: "À propos de nous",
+        contactUs: "Nous contacter",
+        ourStore: "Notre magasin",
+        myAccount: "Mon compte",
+        searchPlaceholder: "Rechercher des produits",
+        callUs: "APPELEZ NOUS MAINTENANT +011 5827918"
+      },
+      rw: {
+        welcome: "MWIZI MU ISOKO YACU YA ETRANS!",
+        trackOrder: "Kurikirana Itangwa",
+        about: "Ibyerekeye",
+        ourStores: "Ibyo Dufite",
+        blog: "Blog",
+        contact: "Twandikire",
+        help: "Ubufasha & FAQs",
+        home: "Urugo",
+        categories: "Amakipe",
+        shop: "Isoko",
+        aboutUs: "Ibyerekeye Twebwe",
+        contactUs: "Twandikire",
+        ourStore: "Isoko Ryacu",
+        myAccount: "Konti Yanjye",
+        searchPlaceholder: "Shakisha ibicuruzwa",
+        callUs: "Duhamagare +011 5827918"
+      }
+    };
+
+    function changeLanguage(lang) {
+      document.getElementById('welcome-message').innerText = translations[lang].welcome;
+      document.getElementById('track-order').innerText = translations[lang].trackOrder;
+      document.getElementById('about').innerText = translations[lang].about;
+      document.getElementById('our-stores').innerText = translations[lang].ourStores;
+      document.getElementById('blog').innerText = translations[lang].blog;
+      document.getElementById('contact').innerText = translations[lang].contact;
+      document.getElementById('help-faqs').innerText = translations[lang].help;
+      document.getElementById('home').innerText = translations[lang].home;
+      document.getElementById('categories').innerText = translations[lang].categories;
+      document.getElementById('shop').innerText = translations[lang].shop;
+      document.getElementById('about-us').innerText = translations[lang].aboutUs;
+      document.getElementById('contact-us').innerText = translations[lang].contactUs;
+      document.getElementById('our-store').innerText = translations[lang].ourStore;
+      document.getElementById('my-account').innerText = translations[lang].myAccount;
+      document.getElementById('search-bar').placeholder = translations[lang].searchPlaceholder;
+      document.getElementById('call-us').innerText = translations[lang].callUs;
+    }
+
+    document.getElementById('language-selector').addEventListener('change', function() {
+      changeLanguage(this.value);
+    });
+  </script>
+</body>
+</html>
